@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Noria de Alcantarilla</title>
     <style>
+        @keyframes fondoAnimado {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f0f8ff;
-            color: #333;
+            background-color: black;
+            background-image: linear-gradient(45deg, rgba(128,0,128,0.3) 25%, transparent 25%, transparent 50%, rgba(128,0,128,0.3) 50%, rgba(128,0,128,0.3) 75%, transparent 75%, transparent);
+            background-size: 100px 100px;
+            animation: fondoAnimado 5s linear infinite;
+            color: white;
         }
         .container {
             max-width: 800px;
@@ -24,6 +32,27 @@
             font-size: 20px;
             margin-top: 10px;
         }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: purple;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            background-color: darkviolet;
+            transform: scale(1.1);
+        }
+        .credits {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +62,10 @@
         <p class="info">La Noria de Alcantarilla es muy antigua. Se usa para sacar agua del río.</p>
         <p class="info">Está en un parque bonito donde se puede pasear.</p>
         <p class="info">Funciona con la fuerza del agua y gira lentamente.</p>
+        
+        <button class="button" onclick="window.location.href='galeria.html'">Ver más fotos</button>
+        
+        <p class="credits">Créditos: Alexandru David Iacob Bruma</p>
     </div>
 </body>
 </html>
