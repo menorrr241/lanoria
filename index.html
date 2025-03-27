@@ -22,6 +22,7 @@
             padding: 0;
             position: relative;
             overflow-x: hidden;
+            height: 100vh; /* Asegura que la altura de la página ocupe toda la ventana */
         }
 
         /* Fondo borroso */
@@ -33,7 +34,7 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
-            filter: blur(8px);
+            filter: blur(10px); /* Aumenta el desenfoque */
             z-index: -1;
         }
 
@@ -41,6 +42,8 @@
             max-width: 800px;
             margin: auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         img {
@@ -76,6 +79,11 @@
             margin-top: 30px;
             font-size: 14px;
             color: #ccc;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Centrado horizontal */
+            z-index: 1;
         }
 
         /* Estilo para los iconos de redes sociales */
@@ -113,9 +121,9 @@
             <a href="https://www.tiktok.com" target="_blank">🎵</a>
             <a href="https://www.youtube.com" target="_blank">🎥</a>
         </div>
-
-        <!-- Créditos -->
-        <p class="credits">Créditos: Alexandru David Iacob Bruma</p>
     </div>
+
+    <!-- Créditos -->
+    <p class="credits">Créditos: Alexandru David Iacob Bruma</p>
 </body>
 </html>
