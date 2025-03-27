@@ -1,109 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Álbum de Fotos</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      color: #333;
-    }
-
-    /* Estilos del contenedor principal */
-    .container {
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #4caf50;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: titleAnimation 2s ease-out;
-    }
-
-    /* Animación del título */
-    @keyframes titleAnimation {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Botón de "Ver fotos" */
-    .btn {
-      background-color: #4caf50;
-      color: white;
-      font-size: 1.5rem;
-      padding: 15px 40px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-      transform: scale(1.1);
-    }
-
-    /* Contenedor de las fotos */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 40px;
-      opacity: 0;
-      animation: fadeIn 2s forwards 1s;
-    }
-
-    /* Animación de las fotos */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    .photo-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transform: scale(1);
-      transition: transform 0.3s ease;
-    }
-
-    .photo-grid img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Noria de Alcantarilla</title>
+    <style>
+        @keyframes fondoAnimado {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            background-image: linear-gradient(45deg, rgba(128,0,128,0.3) 25%, transparent 25%, transparent 50%, rgba(128,0,128,0.3) 50%, rgba(128,0,128,0.3) 75%, transparent 75%, transparent);
+            background-size: 50px 50px;
+            animation: fondoAnimado 10s linear infinite;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .info {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: purple;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            background-color: darkviolet;
+            transform: scale(1.1);
+        }
+        .credits {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bienvenidos a mi Álbum</h1>
-    <button class="btn" id="viewPhotosBtn">Aquí para ver fotos</button>
-    <div class="photo-grid" id="photoGrid">
-      <img src="https://via.placeholder.com/300x200?text=Foto+1" alt="Foto 1">
-      <img src="https://via.placeholder.com/300x200?text=Foto+2" alt="Foto 2">
-      <img src="https://via.placeholder.com/300x200?text=Foto+3" alt="Foto 3">
-      <img src="https://via.placeholder.com/300x200?text=Foto+4" alt="Foto 4">
-      <img src="https://via.placeholder.com/300x200?text=Foto+5" alt="Foto 5">
-      <img src="https://via.placeholder.com/300x200?text=Foto+6" alt="Foto 6">
+    <div class="container">
+        <h1>La Noria de Alcantarilla</h1>
+        <img src="noria.jpg" alt="Imagen de la Noria de Alcantarilla">
+        <p class="info">La Noria de Alcantarilla es muy antigua. Se usa para sacar agua del río.</p>
+        <p class="info">Está en un parque bonito donde se puede pasear.</p>
+        <p class="info">Funciona con la fuerza del agua y gira lentamente.</p>
+        
+        <button class="button" onclick="location.href='galeria.html'">Ver más fotos</button>
+        
+        <p class="credits">Créditos: Alexandru David Iacob Bruma</p>
     </div>
-  </div>
-
-  <script>
-    // Muestra las fotos cuando se haga clic en el botón
-    const viewPhotosBtn = document.getElementById('viewPhotosBtn');
-    const photoGrid = document.getElementById('photoGrid');
-
-    viewPhotosBtn.addEventListener('click', () => {
-      photoGrid.style.display = 'grid';
-      viewPhotosBtn.style.display = 'none'; // Oculta el botón después de hacer clic
-    });
-  </script>
 </body>
 </html>
