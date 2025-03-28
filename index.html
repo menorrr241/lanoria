@@ -14,46 +14,33 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: black;
-            background-image: linear-gradient(45deg, rgba(128,0,128,0.3) 25%, transparent 25%, transparent 50%, rgba(128,0,128,0.3) 50%, rgba(128,0,128,0.3) 75%, transparent 75%, transparent);
-            background-size: 50px 50px;
-            animation: fondoAnimado 10s linear infinite;
             color: white;
             margin: 0;
             padding: 0;
-            position: relative;
             overflow-x: hidden;
-            height: 100vh; /* Asegura que la altura de la página ocupe toda la ventana */
+            height: 100vh;
+            position: relative;
         }
 
-        /* Fondo borroso */
-        body::before {
-            content: '';
-            position: absolute;
+        /* Contenedor del fondo dinámico */
+        .background-container {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            filter: blur(10px); /* Aumenta el desenfoque */
-            z-index: -1;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+            z-index: -2;
         }
-
+        
         .container {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
             margin: auto;
             padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .info {
-            font-size: 20px;
-            margin-top: 10px;
         }
 
         .button {
@@ -74,7 +61,6 @@
             transform: scale(1.1);
         }
 
-        /* Créditos */
         .credits {
             margin-top: 30px;
             font-size: 14px;
@@ -82,45 +68,42 @@
             position: absolute;
             bottom: 20px;
             left: 50%;
-            transform: translateX(-50%); /* Centrado horizontal */
+            transform: translateX(-50%);
             z-index: 1;
-        }
-
-        /* Estilo para los iconos de redes sociales */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            font-size: 24px;
-            color: #ccc;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: white;
         }
     </style>
 </head>
 <body>
+    <div class="background-container" id="background"></div>
+    
     <div class="container">
         <h1>La Noria de Alcantarilla</h1>
-        
-        
         <button class="button" onclick="location.href='galeria.html'">Ver más fotos</button>
-        
-        <!-- Redes sociales -->
-        <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank">📸</a>
-            <a href="https://www.tiktok.com" target="_blank">🎵</a>
-            <a href="https://www.youtube.com" target="_blank">🎥</a>
-        </div>
     </div>
-
-    <!-- Créditos -->
+    
     <p class="credits">Créditos: Alexandru David Iacob Bruma</p>
+    
+    <script>
+        const imagenes = [
+            'imagen1.jpg', 
+            'imagen2.jpg', 
+            'imagen3.jpg', 
+            'imagen4.jpg'
+        ];
+        let indice = 0;
+        const fondo = document.getElementById('background');
+        
+        function cambiarFondo() {
+            fondo.style.opacity = 0;
+            setTimeout(() => {
+                fondo.style.backgroundImage = `url(${imagenes[indice]})`;
+                fondo.style.opacity = 1;
+                indice = (indice + 1) % imagenes.length;
+            }, 1000);
+        }
+        
+        setInterval(cambiarFondo, 3000);
+        cambiarFondo();
+    </script>
 </body>
 </html>
